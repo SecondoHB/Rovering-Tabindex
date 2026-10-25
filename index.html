@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rovering Tabindex - TESTSEITE auf Github</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <header>
+      <div class="nav-container">
+        <h1>Rovering Tabindex</h1>
+        <nav aria-label="Hauptmenü">
+          <ul>
+            <li><a href="#a">Menü Link a</a></li>
+            <li><a href="#b">Menü Link b</a></li>
+            <li><a href="#c">Menü Link a c</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section>
+        <h2>Unser Team</h2>
+        <p>
+          Sobald der Fokus auf einem Feld im Grid liegt, kann man mit den
+          Pfeiltasten im Grid navigieren.
+        </p>
+
+        <!-- Visuell versteckte Live-Region für Screenreader-Ankündigungen -->
+        <div
+          id="sr-announcer"
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+
+        <div role="grid" aria-label="Projekt-Teamübersicht" class="team-grid">
+          <div role="row">
+            <div role="columnheader">Name</div>
+            <div role="columnheader">Rolle</div>
+            <div role="columnheader">Status</div>
+          </div>
+
+          <div role="row">
+            <div role="gridcell" id="cell-1-1" tabindex="0">
+              Max Entwicklerhausen
+            </div>
+            <div role="gridcell" id="cell-1-2" tabindex="-1">Entwickler</div>
+            <div
+              role="gridcell"
+              id="cell-1-3"
+              tabindex="-1"
+              aria-readonly="false"
+            >
+              Aktiv
+            </div>
+          </div>
+
+          <div role="row">
+            <div role="gridcell" id="cell-2-1" tabindex="-1">
+              Anna Designerinhausen
+            </div>
+            <div role="gridcell" id="cell-2-2" tabindex="-1">Designerin</div>
+            <div
+              role="gridcell"
+              id="cell-2-3"
+              tabindex="-1"
+              aria-readonly="false"
+            >
+              Abwesend
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Test Quellcode auf Github</p>
+    </footer>
+
+    <!-- Verknüpfung mit der externen JavaScript-Datei -->
+    <script src="script.js"></script>
+  </body>
+</html>
